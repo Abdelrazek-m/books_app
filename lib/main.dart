@@ -16,10 +16,9 @@ class MyApp extends StatelessWidget {
     
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData().copyWith(
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kMainColor,
       ),
-
       home:const SplachView(),
     );
   }

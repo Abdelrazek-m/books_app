@@ -1,8 +1,30 @@
 import 'package:books_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class SplachViewBody extends StatelessWidget {
+import 'slider_text.dart';
+
+class SplachViewBody extends StatefulWidget {
   const SplachViewBody({super.key});
+  @override
+  State<SplachViewBody> createState() => _SplachViewBodyState();
+}
+
+class _SplachViewBodyState extends State<SplachViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimaiton;
+  
+
+  @override
+  void initState() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidingAnimaiton =
+        Tween<Offset>(begin: const Offset(0, 10), end: const Offset(0, 0))
+            .animate(animationController);
+    animationController.forward();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +38,7 @@ class SplachViewBody extends StatelessWidget {
         children: [
           Image.asset(AssetsData.kLogo),
           SizedBox(height: defaultSize * 1),
-          const Text(
-            'read books for free',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.w200
-            ),
-          )
+          SliderText(animationController: animationController, slidingAnimaiton: slidingAnimaiton)
         ],
       ),
     );
