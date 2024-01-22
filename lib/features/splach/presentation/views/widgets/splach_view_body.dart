@@ -1,6 +1,7 @@
-import 'package:books_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/customNavagation.dart';
+import '../../../../home/presentation/views/home_view.dart';
 import 'slider_text.dart';
 
 class SplachViewBody extends StatefulWidget {
@@ -13,17 +14,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimaiton;
-  
 
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidingAnimaiton =
-        Tween<Offset>(begin: const Offset(0, 10), end: const Offset(0, 0))
-            .animate(animationController);
-    animationController.forward();
     super.initState();
+    initSlidingAnimation();
+    customNavagation(page:const HomeView());
   }
 
   @override
@@ -38,9 +34,20 @@ class _SplachViewBodyState extends State<SplachViewBody>
         children: [
           Image.asset(AssetsData.kLogo),
           SizedBox(height: defaultSize * 1),
-          SliderText(animationController: animationController, slidingAnimaiton: slidingAnimaiton)
+          SliderText(
+              animationController: animationController,
+              slidingAnimaiton: slidingAnimaiton)
         ],
       ),
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidingAnimaiton =
+        Tween<Offset>(begin: const Offset(0, 10), end: const Offset(0, 0))
+            .animate(animationController);
+    animationController.forward();
   }
 }
