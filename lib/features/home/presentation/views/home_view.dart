@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:books_app/core/utils/styles.dart';
+import 'package:books_app/features/home/presentation/views/widgets/custom_list_books_item.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_appbar.dart';
+import 'widgets/custom_v_list_item.dart';
 import 'widgets/horizontal_books_list_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -22,8 +25,14 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 60),
             Text(
               'Best Seller',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: Styles.titleMedium,
             ),
+            SizedBox(height: 30),
+            ListView.separated(
+                itemBuilder: (context, index) => CustomVListItem(),
+                separatorBuilder: (context,index)=>SizedBox(height: 10,),
+                itemCount: 12),
+            
           ],
         ),
       ),
