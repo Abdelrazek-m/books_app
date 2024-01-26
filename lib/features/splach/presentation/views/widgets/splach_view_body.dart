@@ -21,6 +21,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
     initSlidingAnimation();
     customNavagation(page:const HomeView());
   }
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
