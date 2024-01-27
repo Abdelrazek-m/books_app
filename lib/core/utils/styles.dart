@@ -1,17 +1,33 @@
 import 'package:flutter/material.dart';
+import '../../constants.dart';
 
-class Styles {
-  static const titleMedium =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.w600);
+abstract class Styles {
+  static const textStyle30 = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.normal,
+    fontFamily: kGTSectraFine,
+  );
 
-  static const titleSmail =
-      TextStyle(fontSize: 20, fontWeight: FontWeight.w500);
+  static const textStyle20 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+    fontFamily: kGTSectraFine,
+  );
 
-  static const subTitle =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey);
+  static const textStyles18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+  );
 
-  static const smailBoldTitle =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+  static const textStyle16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: Colors.grey,
+  );
 
-  static const smailSubTitle = TextStyle(fontSize: 16, color: Colors.grey);
+  static const textStyle14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey,
+  );
 }

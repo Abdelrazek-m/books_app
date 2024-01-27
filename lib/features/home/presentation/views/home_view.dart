@@ -25,10 +25,12 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 60),
             Text(
               'Best Seller',
-              style: Styles.titleMedium,
+              style: Styles.textStyles18,
             ),
             SizedBox(height: 30),
             ListView.separated(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
                 itemBuilder: (context, index) => CustomVListItem(),
                 separatorBuilder: (context,index)=>SizedBox(height: 10,),
                 itemCount: 12),

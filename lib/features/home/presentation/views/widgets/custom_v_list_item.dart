@@ -29,17 +29,17 @@ class CustomVListItem extends StatelessWidget {
               children: [
                 Text(
                   'Harry Potter and the Goblet of Fire',
-                  style: Styles.titleSmail,
+                  style: Styles.textStyle20,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ), 
-                Text('J.K Rowling', style: Styles.subTitle), 
+                Text('J.K Rowling', style: Styles.textStyle16), 
                 Row(children: [ 
-                  Text('19.99 €', style: Styles.titleMedium), 
+                  Text('19.99 €', style: Styles.textStyles18), 
                   const Spacer(), 
                   IconButton(onPressed: (){}, icon: Icon(Icons.star, color: Colors.yellow,size: 22,)), 
-                  Text('4.8', style: Styles.smailBoldTitle), 
-                  Text(' (2390)', style: Styles.smailSubTitle), 
+                  Text('4.8', style: Styles.textStyle16), 
+                  Text(' (2390)', style: Styles.textStyle14), 
                 ],)
               ],
             ),
