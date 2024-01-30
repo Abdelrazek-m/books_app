@@ -1,7 +1,7 @@
+import 'package:books_app/core/utils/router/routers_names.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/customNavagation.dart';
-import '../../../../home/presentation/views/home_view.dart';
 import 'slider_text.dart';
 
 class SplachViewBody extends StatefulWidget {
@@ -19,7 +19,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
-    customNavagation(page:const HomeView());
+    Future.delayed(Duration(seconds: 2), ()=>context.go(RouterNames.rHomeView));
   }
   @override
   void dispose() {

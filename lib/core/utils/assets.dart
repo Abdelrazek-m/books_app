@@ -1,3 +1,3 @@
-class AssetsData{
-  static const kLogo='assets/images/logo.png';
+class AssetsData {
+  static const kLogo = 'assets/images/logo.png';
 }

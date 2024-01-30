@@ -1,8 +1,14 @@
 
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
 
+import 'package:books_app/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/utils/router/routers_names.dart';
 import '../../../../../core/utils/styles.dart';
-import 'custom_list_books_item.dart';
+import 'book_image.dart';
+import 'custom_reating.dart';
 
 class CustomVListItem extends StatelessWidget {
   const CustomVListItem({
@@ -11,17 +17,17 @@ class CustomVListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          height: 120,
-          child:
-              CustomListBooksItem(imageUrl: 'assets/images/book2.png'),
-        ),
-        const SizedBox(width: 30),
-        SizedBox(
-          height: 120,
-          child: Expanded(
+    return GestureDetector(
+      onTap: () => context.go(RouterNames.rBookDetailsView),
+      child: Row(
+        children: const [
+          SizedBox(
+            height: 130,
+            child:
+                BookImage(imageUrl: testImage),
+          ),
+          SizedBox(width: 30),
+          Expanded(
               
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,19 +40,19 @@ class CustomVListItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ), 
                 Text('J.K Rowling', style: Styles.textStyle16), 
-                Row(children: [ 
-                  Text('19.99 €', style: Styles.textStyles18), 
-                  const Spacer(), 
-                  IconButton(onPressed: (){}, icon: Icon(Icons.star, color: Colors.yellow,size: 22,)), 
-                  Text('4.8', style: Styles.textStyle16), 
-                  Text(' (2390)', style: Styles.textStyle14), 
+                Row(children: [
+                        Text('19.99 €', style: Styles.textStyles18), 
+                        Spacer(),
+                  CustomReating(),
+                  
                 ],)
               ],
             ),
           ),
-        ),
-        const SizedBox(width: 30),
-      ],
+          SizedBox(width: 35),
+        ],
+      ),
     );
   }
 }
+

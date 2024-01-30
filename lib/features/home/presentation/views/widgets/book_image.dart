@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CustomListBooksItem extends StatelessWidget {
-  const CustomListBooksItem({
+class BookImage extends StatelessWidget {
+  const BookImage({
     super.key,required this.imageUrl,
   });
   final String imageUrl;
