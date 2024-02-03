@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import 'horizontal_books_list_view.dart';
+import 'feature_books_list_view.dart';
 
 class SimilarBooksSection extends StatelessWidget {
   const SimilarBooksSection({super.key});
@@ -19,7 +19,7 @@ class SimilarBooksSection extends StatelessWidget {
         const SizedBox(height: 16),
         SizedBox(
             height: MediaQuery.of(context).size.width * .25,
-            child: HBooksListView())
+            child: const FeatureBooksListView())
       ],
     );
   }

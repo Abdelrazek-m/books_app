@@ -1,18 +1,18 @@
 import 'package:books_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'widgets/custom_v_list_item.dart';
-import 'widgets/home_view_top_section.dart';
+import 'widgets/newset_books_list.dart';
+import 'widgets/feature_books_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(child: HomeViewTopSection()),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(child: FeatureBooksSection()),
+          SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.0),
               child: Text(
@@ -21,19 +21,11 @@ class HomeView extends StatelessWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 30)),
-          SliverList.separated(
-            itemCount: 12,
-            separatorBuilder: (context, index) => const SizedBox(
-              height: 10,
-            ),
-            itemBuilder: (context, index) => const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
-              child: CustomVListItem(),
-            ),
-          )
+          SliverToBoxAdapter(child: SizedBox(height: 30)),
+          NewsetBooksList()
         ],
       ),
     );
   }
 }
+

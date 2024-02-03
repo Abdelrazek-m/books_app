@@ -11,6 +11,8 @@ class ImageLinks extends Equatable {
         thumbnail: json['thumbnail'] as String?,
       );
 
+  get newMethod => null;
+
   Map<String, dynamic> toJson() => {
         'smallThumbnail': smallThumbnail,
         'thumbnail': thumbnail,

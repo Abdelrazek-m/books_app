@@ -1,7 +1,6 @@
 
-// ignore_for_file: prefer_const_constructors
-
 import 'package:books_app/constants.dart';
+import 'package:books_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,23 +9,24 @@ import '../../../../../core/utils/styles.dart';
 import 'book_image.dart';
 import 'custom_reating.dart';
 
-class CustomVListItem extends StatelessWidget {
-  const CustomVListItem({
-    super.key,
+class NewsetBooksListItem extends StatelessWidget {
+  const NewsetBooksListItem( {
+    super.key, required this.book,
   });
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.go(RouterNames.rBookDetailsView),
       child: Row(
-        children: const [
+        children:  [
           SizedBox(
             height: 130,
             child:
-                BookImage(imageUrl: testImage),
+                BookImage(imageUrl: book.volumeInfo?.imageLinks?.thumbnail??testImage),
           ),
-          SizedBox(width: 30),
+          const SizedBox(width: 30),
           Expanded(
               
             child: Column(
@@ -34,22 +34,22 @@ class CustomVListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Harry Potter and the Goblet of Fire',
+                  book.volumeInfo?.title??'',
                   style: Styles.textStyle20,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ), 
-                Text('J.K Rowling', style: Styles.textStyle16), 
+                Text(book.volumeInfo!.authors?.first??'', style: Styles.textStyle16), 
                 Row(children: [
-                        Text('19.99 €', style: Styles.textStyles18), 
-                        Spacer(),
-                  CustomReating(),
+                        Text('${book.saleInfo!.listPrice!.amount}', style: Styles.textStyles18), 
+                        const Spacer(),
+                  const CustomReating(),
                   
                 ],)
               ],
             ),
           ),
-          SizedBox(width: 35),
+          const SizedBox(width: 35),
         ],
       ),
     );
