@@ -40,16 +40,16 @@ class NewsetBooksListItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ), 
                 Text(book.volumeInfo!.authors?.first??'', style: Styles.textStyle16), 
-                Row(children: [
-                        Text('${book.saleInfo!.listPrice!.amount}', style: Styles.textStyles18), 
-                        const Spacer(),
-                  const CustomReating(),
+                const Row(children: [
+                        Text('Free', style: Styles.textStyles18), 
+                        Spacer(),
+                  CustomReating(),
                   
                 ],)
               ],
             ),
           ),
-          const SizedBox(width: 35),
+          const SizedBox(width: 25),
         ],
       ),
     );

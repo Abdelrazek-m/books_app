@@ -9,7 +9,7 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: RouterNames.rSplashView,
         builder: (context, state) => const SplachView(),
       ),
       GoRoute(

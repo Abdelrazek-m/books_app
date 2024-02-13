@@ -16,12 +16,13 @@ class NewsetBooksList extends StatelessWidget {
     return BlocBuilder<NewsetBooksCubit, NewsetBooksState>(
       builder: (context, state) {
         if(state is NewsetBooksFailure){
-          return  CustomErrorWidget(errorMessage: state.errorMessage,);
+          return  SliverToBoxAdapter(child: CustomErrorWidget(errorMessage: state.errorMessage,));
         }else if(state is NewsetBooksSuccess){
         return SliverList.separated(
-          itemCount: 12,
+          
+          itemCount: state.books.length,
           separatorBuilder: (context, index) => const SizedBox(
-            height: 10,
+            height: 20,
           ),
           itemBuilder: (context, index) =>  Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -30,7 +31,7 @@ class NewsetBooksList extends StatelessWidget {
         );}
         else{
           
-          return const CustomProgressIndicator();
+          return const SliverToBoxAdapter(child: CustomProgressIndicator());
         }
       },
     );

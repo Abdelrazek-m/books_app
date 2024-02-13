@@ -1,5 +1,4 @@
 import 'package:books_app/constants.dart';
-import 'package:books_app/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/widgets/custom_progress_indicator.dart';
 import '../../../../../core/utils/widgets/customm_error_widget.dart';
 import '../../../../../core/utils/router/routers_names.dart';
+import '../../view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'book_image.dart';
 
 class FeatureBooksListView extends StatelessWidget {
@@ -22,8 +22,10 @@ class FeatureBooksListView extends StatelessWidget {
           return CustomErrorWidget(errorMessage: state.errorMessage,);
         }  else if(state is FeatureBooksSuccess) {
           return ListView.separated(
+            
+            physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: 12,
+            itemCount: state.books.length,
             itemBuilder: (context, index) => GestureDetector(
               onTap: () => context.go(RouterNames.rBookDetailsView),
               child: BookImage(

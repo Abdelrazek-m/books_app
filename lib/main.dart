@@ -24,18 +24,20 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FeatureBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) => NewsetBooksCubit(
-            getIt.get<HomeRepoImpl>(),
-          ),
+            getIt.get<HomeRepoImpl>()..fetchNewsetBooks(),
+          )..fetchNewsetBooks(),
         ),
       ],
       child: MaterialApp.router(
+      
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
         theme: ThemeData.dark().copyWith(
+          
           scaffoldBackgroundColor: kMainColor,
           textTheme:
               GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
